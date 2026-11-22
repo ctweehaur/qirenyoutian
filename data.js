@@ -1,0 +1,165 @@
+// ==========================================================================
+// 📚 《杞人忧天》课文词典与分段数据集 (data.js) - 文言古今义弹窗与变调规范精修版
+// 结构：共 7 段，与 analysis.js 1–7 完全对齐；第 5 项触发白话【译】与【古义/今义】徽章
+// ==========================================================================
+
+const lessonTitle = "杞人忧天";
+
+const lessonData = [
+    // ===== 第1段（交代起因：杞国有人担忧天地塌陷，自身无处依托，乃至废寝忘食） =====
+    ["杞国", "qǐ guó", "the State of Qi (ancient Zhou vassal state in Henan, read qǐ guó)", "Negara Qi (negeri purba zaman Dinasti Zhou)", "周代诸侯国名，在今中国河南杞县", "u"],
+    ["有人", "yǒu rén", "there was a man who", "terdapat seorang lelaki yang", "有个人"],
+    ["忧", "yōu", "worried / was anxious that", "berasa risau dan bimbang bahawa", "担忧、发愁"],
+    ["天地", "tiān dì", "the heaven and the earth", "langit dan bumi", "天和地"],
+    ["崩坠", "bēng zhuì", "would collapse and fall down", "akan runtuh dan jatuh", "塌陷、坠落（崩：倒塌；坠：落下）"],
+    ["，", "", "", ""],
+    ["身", "shēn", "his own body / himself", "dirinya sendiri", "自身、自己"],
+    ["亡", "wú", "would have nowhere (interchangeable with 无, read wú)", "tiada tempat (kata pinjaman bagi 无)", "通“无”，没有（读 wú）"],
+    ["所寄", "suǒ jì", "to lodge / rely upon", "untuk berlindung atau bergantung", "依托、依附的地方"],
+    ["，", "", "", ""],
+    ["废", "fèi", "abandoning / neglecting", "mengabaikan / tidak lalu", "废止、荒废"],
+    ["寝食", "qǐn shí", "sleep and food", "tidur dan makan", "睡觉和吃饭"],
+    ["者", "zhě", "(nominalizer: one who)", "orang yang sedemikian", "……的人"],
+    ["。", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第2段（开导者登场：另有担忧他发愁的人前去开导，指出天不过是积聚的气体）
+
+    ["又有", "yòu yǒu", "there was also another man who", "ada pula seorang lagi yang", "又有一个"],
+    ["忧", "yōu", "worried about", "berasa bimbang akan", "担忧、发愁"],
+    ["彼", "bǐ", "that man's", "orang itu punya", "代词：他（指前面那个杞国人）"],
+    ["之", "zhī", "(structural particle)", "(partikel penghubung)", "助词，取消句子独立性，不译"],
+    ["所忧", "suǒ yōu", "worry / anxiety", "kerisauan yang ditanggung", "所担忧的事情"],
+    ["者", "zhě", "one who", "orang yang", "……的人"],
+    ["，", "", "", ""],
+    ["因", "yīn", "therefore / accordingly", "lalu / oleh itu", "于是、就"],
+    ["往", "wǎng", "went over to", "pergi menemui", "前去、去"],
+    ["晓", "xiǎo", "enlighten / explain clearly to", "menerangkan dan memujuk", "告知、开导"],
+    ["之", "zhī", "him", "dia", "代词：他（指忧天的杞国人）"],
+    ["，", "", "", ""],
+    ["曰", "yuē", "saying", "berkata", "说"],
+    ["：“", "", "", ""],
+    ["天", "tiān", "the sky / heaven", "langit itu", "天"],
+    ["，", "", "", ""],
+    ["积气", "jī qì", "accumulated air / gas", "kumpulan udara yang terkumpul", "积聚在一起的气体"],
+    ["耳", "ěr", "merely / nothing more than", "sahaja", "句末语气词：罢了、而已"],
+    ["，", "", "", ""],
+    ["亡", "wú", "there is no (interchangeable with 无, read wú)", "tiada", "通“无”，没有（读 wú）"],
+    ["处", "chù", "place", "tempat yang", "地方、处所"],
+    ["亡气", "wú qì", "without air (read wú qì)", "tiada udara", "没有气体"],
+    ["。", "", "", ""],
+    ["若", "ruò", "you", "kamu", "古义：第二人称代词，你\n今义：如果、好像"],
+    ["屈伸", "qū shēn", "bending and stretching", "membengkok dan meluruskan badan", "身体弯曲和伸展（指一举一动）"],
+    ["呼吸", "hū xī", "breathing in and out", "bernafas", "一呼一吸"],
+    ["，", "", "", ""],
+    ["终日", "zhōng rì", "all day long", "sepanjang hari", "整天"],
+    ["在天中", "zài tiān zhōng", "inside the sky / atmosphere", "di dalam ruang udara langit", "在气体之中"],
+    ["行止", "xíng zhǐ", "moving and resting / living", "bergerak dan berhenti (beraktiviti)", "古义：行动和停留（指日常活动）\n今义：行为举止"],
+    ["，", "", "", ""],
+    ["奈何", "nài hé", "why / how could you", "mengapakah pula", "为什么、怎么"],
+    ["忧", "yōu", "worry about", "berasa bimbang akan", "担忧"],
+    ["崩坠", "bēng zhuì", "it collapsing and falling", "ia akan runtuh jatuh", "塌陷坠落"],
+    ["乎", "hū", "(interrogative particle)", "pula?", "句末疑问语气词：呢？"],
+    ["？”", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第3段（杞人追问一：天果真是积气，日月星宿不就会掉下来吗？）
+
+    ["其人", "qí rén", "that man (the man of Qi)", "orang itu", "那个人（指忧天的杞国人）"],
+    ["曰", "yuē", "said", "berkata", "说"],
+    ["：“", "", "", ""],
+    ["天", "tiān", "if the sky", "sekiranya langit"],
+    ["果", "guǒ", "truly / really is", "benar-benar merupakan", "果真、确实"],
+    ["积气", "jī qì", "accumulated air", "udara yang terkumpul", "积聚的气体"],
+    ["，", "", "", ""],
+    ["日月", "rì yuè", "the sun, the moon", "matahari, bulan", "太阳、月亮"],
+    ["星宿", "xīng xiù", "and the stars/constellations (read xīng xiù)", "dan bintang-bintang", "古义：泛指星辰（读 xīng xiù）\n今义：住宿（读 sù）"],
+    ["，", "", "", ""],
+    ["不当", "bù dāng", "should they not (read bù dāng)", "tidakkah sepatutnya ia", "不应当、岂不"],
+    ["坠", "zhuì", "fall down", "jatuh ke bawah", "坠落、掉下来"],
+    ["耶", "yé", "(rhetorical question particle, read yé)", "kah?", "句末疑问语气词：吗、呢？（读 yé）"],
+    ["？”", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第4段（开导者解答一：日月星宿也是积气中有光耀者，纵使坠落也不会打伤人）
+
+    ["晓之者", "xiǎo zhī zhě", "the man who was enlightening him", "orang yang memujuknya itu", "开导他的人"],
+    ["曰", "yuē", "replied", "menjawab", "说"],
+    ["：“", "", "", ""],
+    ["日月", "rì yuè", "the sun, the moon", "matahari, bulan"],
+    ["星宿", "xīng xiù", "and stars (read xīng xiù)", "dan bintang-bintang", "星辰"],
+    ["，", "", "", ""],
+    ["亦", "yì", "are also", "juga merupakan", "也"],
+    ["积气中", "jī qì zhōng", "within the accumulated air", "di dalam kumpulan udara itu", "积聚的气体之中"],
+    ["之", "zhī", "(structural particle)", "yang", "结构助词：的"],
+    ["有", "yǒu", "having", "mempunyai", "具有"],
+    ["光耀", "guāng yào", "radiance and light", "cahaya yang bersinar", "光芒、光辉"],
+    ["者", "zhě", "things that", "benda-benda yang", "……的物体"],
+    ["，", "", "", ""],
+    ["只使", "zhǐ shǐ", "even if / supposing (read zhǐ shǐ)", "kalaupun / andaikata", "古义：纵使、即使（读 zhǐ shǐ）\n今义：仅仅让"],
+    ["坠", "zhuì", "they were to fall", "ia jatuh ke bawah", "坠落"],
+    ["，", "", "", ""],
+    ["亦", "yì", "still", "juga", "也"],
+    ["不能", "bù néng", "could not (read bù néng)", "tidak akan mampu", "不能够"],
+    ["有所", "yǒu suǒ", "cause any", "menyebabkan sebarang", "有什么……的地方"],
+    ["中伤", "zhòng shāng", "injury by hitting / harm (read zhòng shāng)", "kecederaan akibat terkena hempapan", "古义：打中、击伤（读 zhòng shāng）\n今义：诬蔑别人使受损害"],
+    ["。”", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第5段（杞人追问二：那地塌陷了怎么办呢？）
+
+    ["其人", "qí rén", "that man", "orang itu", "那个人"],
+    ["曰", "yuē", "asked", "bertanya lagi"],
+    ["：“", "", "", ""],
+    ["奈", "nài", "how about / what to do if", "bagaimanakah pula jika", "“奈……何”固定句式：把……怎么办"],
+    ["地坏", "dì huài", "the earth collapses / breaks apart", "bumi ini runtuh musnah", "大地塌陷毁坏"],
+    ["何", "hé", "what (part of 奈……何)", "nanti?", "疑问代词：怎么样、怎么办"],
+    ["？”", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第6段（开导者解答二：地是积聚的土块，充塞四方，整日在地上活动何必忧地坏）
+
+    ["晓之者", "xiǎo zhī zhě", "the enlightener", "orang yang memujuknya itu", "开导他的人"],
+    ["曰", "yuē", "replied", "menjawab"],
+    ["：“", "", "", ""],
+    ["地", "dì", "the earth", "bumi ini", "大地"],
+    ["，", "", "", ""],
+    ["积块", "jī kuài", "is accumulated clods of earth", "kumpulan ketulan tanah yang terkumpul", "积聚在一起的土块"],
+    ["耳", "ěr", "merely", "sahaja", "罢了、而已"],
+    ["，", "", "", ""],
+    ["充塞", "chōng sè", "filling up completely (read chōng sè)", "memenuhi seluruh", "塞满、充满（塞：读 sè）"],
+    ["四虚", "sì xū", "all four directions / everywhere in space", "empat penjuru ruang alam", "古义：四方（指宇宙四面八方）\n今义：四个虚空"],
+    ["，", "", "", ""],
+    ["亡处", "wú chù", "there is no place (read wú chù)", "tiada tempat yang", "没有哪个地方"],
+    ["亡块", "wú kuài", "without clods of earth (read wú kuài)", "tiada ketulan tanah", "没有土块"],
+    ["。", "", "", ""],
+    ["若", "ruò", "you", "kamu", "你"],
+    ["躇步", "chú bù", "stepping and walking (read chú bù)", "melangkah dan berjalan", "古义：踩踏、迈步（读 chú bù）\n今义：犹豫（踌躇）"],
+    ["跐蹈", "cǐ dǎo", "treading and trampling (read cǐ dǎo)", "memijak dan menghentak kaki", "踩踏、践踏（读 cǐ dǎo）"],
+    ["，", "", "", ""],
+    ["终日", "zhōng rì", "all day long", "sepanjang hari", "整天"],
+    ["在地上", "zài dì shàng", "upon the earth", "di atas permukaan tanah", "在大地上"],
+    ["行止", "xíng zhǐ", "moving and staying", "bergerak dan beraktiviti", "行走和停留（日常活动）"],
+    ["，", "", "", ""],
+    ["奈何", "nài hé", "why", "mengapakah pula", "为什么"],
+    ["忧", "yōu", "worry about", "berasa risau akan", "担忧"],
+    ["其坏", "qí huài", "it breaking apart", "ia akan runtuh musnah", "它（大地）塌陷毁坏"],
+    ["？”", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 第7段（结局：忧天者释然大喜，开导者亦释然大喜）
+
+    ["其人", "qí rén", "that man", "orang itu", "那个杞国人"],
+    ["舍然", "shì rán", "relieved / with doubts dispelled (舍 interchangeable with 释, read shì rán)", "berasa lega dan lapang dada", "古义：消除疑虑的样子（舍：通“释”，解除，读 shì）\n今义：舍弃"],
+    ["大喜", "dà xǐ", "was overjoyed", "sangat gembira", "非常高兴"],
+    ["，", "", "", ""],
+    ["晓之者", "xiǎo zhī zhě", "and the man who enlightened him", "orang yang memujuknya itu", "开导他的人"],
+    ["亦", "yì", "also", "juga", "也"],
+    ["舍然", "shì rán", "relieved and satisfied (read shì rán)", "berasa lega dan puas hati", "放心、释怀的样子（读 shì rán）"],
+    ["大喜", "dà xǐ", "was overjoyed", "sangat gembira", "非常高兴"],
+    ["。", "", "", ""],
+
+    ["\n", "", "", ""], // 👈 出处（自动右对齐落款）
+
+    ["（〔", "", "", ""],
+    ["战国", "zhàn guó", "Warring States Period (475–221 BCE)", "Zaman Negara Berperang", "", "u"],
+    ["〕", "", "", ""],
+    ["列子", "liè zǐ", "Liezi (Lie Yukou, Daoist philosopher)", "Liezi", "", "u"],
+    ["《", "", "", ""],
+    ["杞人忧天", "qǐ rén yōu tiān", "The Man of Qi Who Feared the Sky Would Fall", "Orang Qi Bimbang Langit Runtuh"],
+    ["》）", "", "", ""]
+];
